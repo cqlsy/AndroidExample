@@ -60,7 +60,7 @@ dependencies {
 apply plugin: 'com.novoda.bintray-release'
 
 publish {
-    publishVersion = '0.0.2'
+    publishVersion = '0.0.3'
     desc = '工具类集合'
 
     repoName = 'maven'
@@ -68,6 +68,6 @@ publish {
     artifactId = 'utils'
 //    repository = 'maven'
     userOrg = 'cq-cherish'
-    website = 'https://github.com/cqlsy/libs/Example'
+    website = 'https://github.com/cqlsy/AndroidExample'
 }
 //↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑

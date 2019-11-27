@@ -55,7 +55,7 @@ dependencies {
 apply plugin: 'com.novoda.bintray-release'
 
 publish {
-    publishVersion = '0.0.2'
+    publishVersion = '0.0.3'
     desc = 'android 组件及框架'
 
     repoName = 'maven'
@@ -63,5 +63,5 @@ publish {
     artifactId = 'ui'
 //    repository = 'maven'
     userOrg = 'cq-cherish'
-    website = 'https://github.com/cqlsy/libs/Example'
+    website = 'https://github.com/cqlsy/AndroidExample'
 }

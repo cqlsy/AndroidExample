@@ -50,7 +50,7 @@ dependencies {
 apply plugin: 'com.novoda.bintray-release'
 
 publish {
-    publishVersion = '0.0.2'
+    publishVersion = '0.0.3'
     desc = 'android net framework'
 
     repoName = 'maven'
@@ -58,5 +58,5 @@ publish {
     artifactId = 'net'
 //    repository = 'maven'
     userOrg = 'cq-cherish'
-    website = 'https://github.com/cqlsy/libs/Example'
+    website = 'https://github.com/cqlsy/AndroidExample'
 }
