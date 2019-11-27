@@ -1,0 +1,13 @@
+
+                                文档介绍
+
+TODO:
+    1. 文件上传下载（单或者多）；目前是新建，参考使用说明第四点，看有没有方法修改
+    2. socket连接
+
+使用说明：
+
+    1. 仿照test包下的net包使用。注意需要在 application 中调用 RetrofitFactory#init();
+    2. XxxRetrofit 表示一类的请求。实例中的 CryptoRetrofit 表示参数需要加密的一种请求。
+    3. HttpClient 的创建使用仅仅是在 RetrofitService 第一次初始化的时候才会调用
+    4. 上传下载使用的 RetrofitService 是每次新建，主要是因为进度监听需要。

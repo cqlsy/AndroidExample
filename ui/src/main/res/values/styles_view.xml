@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImmersiveLayout">
+        <attr name="need_fit_window" format="boolean" />
+    </declare-styleable>
+
+    <!--UITextView-->
+    <declare-styleable name="UITextView">
+        <attr name="ui_ripple_enabled" format="boolean" />
+        <attr name="ui_ripple_color" format="color" />
+        <attr name="ui_touch_effect_enabled" format="boolean" />
+        <attr name="ui_background_color" format="color" />
+        <attr name="ui_background_color_pressed" format="color" />
+        <attr name="ui_background_color_disabled" format="color" />
+        <attr name="ui_text_color" format="color" />
+        <attr name="ui_text_color_pressed" format="color" />
+        <attr name="ui_text_color_disabled" format="color" />
+        <attr name="ui_border_radius" format="dimension" />
+        <attr name="ui_border_width" format="dimension" />
+        <attr name="ui_border_color" format="color" />
+        <attr name="ui_border_color_pressed" format="color" />
+        <attr name="ui_border_color_disabled" format="color" />
+    </declare-styleable>
+
+    <!--UIEditText-->
+    <declare-styleable name="UIEditText">
+        <attr name="ui_clear_icon" format="reference" />
+        <attr name="ui_clear_enabled" format="boolean" />
+    </declare-styleable>
+
+    <!--UIViewPager-->
+    <declare-styleable name="UIViewPager">
+        <attr name="scroll_enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RefreshView">
+        <attr name="ui_content_id" format="reference" />
+        <attr name="ui_enable_refresh" format="boolean" />
+        <attr name="ui_enable_load_more" format="boolean" />
+        <!--<attr name="ui_no_data_view" format="reference" />
+        <attr name="ui_error_view" format="reference" />
+        <attr name="ui_loading_view" format="reference" />-->
+        <attr name="ui_fun_view" format="reference" />
+
+    </declare-styleable>
+
+</resources>

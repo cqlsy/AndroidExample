@@ -1,0 +1,11 @@
+1. gradlew 命令行设置代理
+
+    # socks5
+    gradle -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=1080
+    # http
+    gradle -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1080
+    # https
+    gradlew -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1080
+
+2. 上传JCenter命令
+    ./gradlew install bintrayUpload

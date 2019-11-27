@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="black_overlay">#66000000</color>
+
+
+    <color name="transparent">#00000000</color>
+    <color name="white_1">#1AFFFFFF</color>
+    <color name="white_2">#33FFFFFF</color>
+    <color name="white_3">#4DFFFFFF</color>
+    <color name="white_4">#66FFFFFF</color>
+    <color name="white_5">#80FFFFFF</color>
+    <color name="white_6">#99FFFFFF</color>
+    <color name="white_7">#B3FFFFFF</color>
+    <color name="white_8">#CCFFFFFF</color>
+    <color name="white_9">#E6FFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_pressed">#FFE6E6E6</color>
+    <color name="black_1">#1A000000</color>
+    <color name="black_2">#33000000</color>
+    <color name="black_3">#4D000000</color>
+    <color name="black_4">#66000000</color>
+    <color name="black_5">#80000000</color>
+    <color name="black_6">#99000000</color>
+    <color name="black_7">#B3000000</color>
+    <color name="black_8">#CC000000</color>
+    <color name="black_9">#E6000000</color>
+    <color name="black">#FF000000</color>
+</resources>
