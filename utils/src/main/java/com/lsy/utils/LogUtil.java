@@ -26,7 +26,7 @@ public class LogUtil {
     /**
      * @param isDebug
      * @param globalTag
-     * @param logLevel  打印的最小等级
+     * @param logLevel  打印的等级
      */
     public static void init(boolean isDebug, String globalTag, int logLevel) {
         GLOBAL_TAG = globalTag;
@@ -59,31 +59,31 @@ public class LogUtil {
 
     public static void v(String tag, String msg) {
         if (LEVEL <= VERBOSE) {
-            Timber.v(msg);
+            Timber.v(tag + " =====>> " + msg);
         }
     }
 
     public static void d(String tag, String msg) {
         if (LEVEL <= DEBUG) {
-            Timber.d(msg);
+            Timber.d(tag + " =====>> " + msg);
         }
     }
 
     public static void i(String tag, String msg) {
         if (LEVEL <= INFO) {
-            Timber.i(msg);
+            Timber.i(tag + " =====>> " + msg);
         }
     }
 
     public static void w(String tag, String msg) {
         if (LEVEL <= WARN) {
-            Timber.w(msg);
+            Timber.w(tag + " =====>> " + msg);
         }
     }
 
     public static void e(String tag, String msg) {
         if (LEVEL <= ERROR) {
-            Timber.e(msg);
+            Timber.e(tag + " =====>> " + msg);
         }
     }
 }

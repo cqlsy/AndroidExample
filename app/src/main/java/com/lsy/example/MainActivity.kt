@@ -1,12 +1,17 @@
 package com.lsy.example
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import androidx.databinding.ViewDataBinding
+import com.lsy.base.FMActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : FMActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
+    }
+
+    override fun initBinding(viewDataBinding: ViewDataBinding) {
+    }
+
+    override fun initViews() {
     }
 }

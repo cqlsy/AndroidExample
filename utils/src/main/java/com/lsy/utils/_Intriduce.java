@@ -15,6 +15,7 @@ import android.app.Application;
  * ///
  * 2. 当使用{@link com.lsy.storage.SPUtil}
  * 需要初始化{@link com.lsy.storage.SPUtil#initKey(Application)}
+ * 需要初始化{@link Utils#init(Application)}
  * ///
  * 3. 当使用{@link LogUtil}
  * 需要初始化 {@link LogUtil#init(boolean, String, int)}
