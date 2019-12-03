@@ -10,8 +10,11 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.lsy.bus.AppBus
 import com.lsy.framework.R
+import com.lsy.permission.PermissionUtil
 import com.lsy.utils.LogUtil
+import com.lsy.utils.StatusBarUtil
 import com.lsy.utils.ToastUtil
 import com.lsy.widget.loading.DefaultLoading
 import com.lsy.widget.loading.ILoadingIndicator
@@ -30,24 +33,38 @@ abstract class FMActivity : AppCompatActivity(), SwipeBackActivityBase, FMView {
 
     /* 这个写在这里是方便调用 */
     protected lateinit var mActivity: Activity
+    var mPermissionUtil: PermissionUtil? = null
+
     /* RXjava 管理 */
     private lateinit var mHelper: SwipeBackActivityHelper  //滑动返回
     private val mCompositeDisposable = CompositeDisposable()
 
     private var mDoubleBack = false
     private var mLoadingDialog: ILoadingIndicator? = null
+    private var presenters: ArrayList<IPresenter?> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = this
+        mPermissionUtil = PermissionUtil(this)
+        initPresenter(presenters)
         /* 设置presenter */
         FMContract.attachView(this)
         /* 设置滑动关闭 */
         initSwipeBack()
-        /*  */
+        /* 设置主题 */
+        if (isImmersiveStyle()) {
+            StatusBarUtil.setImmersiveStyle(this)
+        }
         val mViewBinding: ViewDataBinding = DataBindingUtil.setContentView(this, getLayoutId())
         initBinding(mViewBinding)
         initViews()
+        FMContract.start(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mPermissionUtil?.onResume()
     }
 
     override fun onDestroy() {
@@ -69,6 +86,15 @@ abstract class FMActivity : AppCompatActivity(), SwipeBackActivityBase, FMView {
         overridePendingTransition(R.anim.app_slide_hold, R.anim.app_slide_right_out)
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        mPermissionUtil?.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
     @LayoutRes
     abstract fun getLayoutId(): Int
 
@@ -76,12 +102,10 @@ abstract class FMActivity : AppCompatActivity(), SwipeBackActivityBase, FMView {
         return null
     }
 
-    override fun <T : FMView> getPresenter(): FMPresenter<T>? {
-        return null
-    }
+    abstract fun initPresenter(presenters: ArrayList<IPresenter?>)
 
-    override fun <T : FMView> getPresenters(): ArrayList<FMPresenter<T>?>? {
-        return null
+    final override fun getPresenters(): ArrayList<IPresenter?> {
+        return presenters
     }
 
     /**
@@ -100,7 +124,10 @@ abstract class FMActivity : AppCompatActivity(), SwipeBackActivityBase, FMView {
     }
 
     override fun handleException(throwable: Throwable) {
-        LogUtil.d("Exception", throwable.message)
+    }
+
+    open fun isImmersiveStyle(): Boolean {
+        return true
     }
 
     override fun getLoadingIndicator(): ILoadingIndicator {

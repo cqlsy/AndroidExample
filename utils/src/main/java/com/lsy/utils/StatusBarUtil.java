@@ -92,24 +92,6 @@ public class StatusBarUtil {
         }
     }
 
-
-    /*    *//**
-     * 代码实现android:fitsSystemWindows
-     *
-     * @param activity
-     *//*
-    public static void setRootViewFitsSystemWindows(Activity activity, boolean fitSystemWindows) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ViewGroup winContent = (ViewGroup) activity.findViewById(android.R.id.content);
-            if (winContent.getChildCount() > 0) {
-                ViewGroup rootView = (ViewGroup) winContent.getChildAt(0);
-                if (rootView != null) {
-                    rootView.setFitsSystemWindows(fitSystemWindows);
-                }
-            }
-        }
-    }*/
-
     /**
      * 代码实现android:fitsSystemWindowss
      *
@@ -172,7 +154,7 @@ public class StatusBarUtil {
     }
 
     //设置6.0 状态栏深色浅色切换
-    public static boolean setCommonUI(Activity activity, boolean dark) {
+    private static boolean setCommonUI(Activity activity, boolean dark) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decorView = activity.getWindow().getDecorView();
             int vis = decorView.getSystemUiVisibility();
@@ -191,7 +173,7 @@ public class StatusBarUtil {
     }
 
     //设置Flyme 状态栏深色浅色切换
-    public static boolean setFlymeUI(Activity activity, boolean dark) {
+    private static boolean setFlymeUI(Activity activity, boolean dark) {
         try {
             Window window = activity.getWindow();
             WindowManager.LayoutParams lp = window.getAttributes();

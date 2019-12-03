@@ -49,11 +49,11 @@ public class GlideUtil {
     }
 
     public static void loadRoundImage(Context context, String url, ImageView view) {
-        loadRoundImage(context, url, view, R.drawable.ic_default);
+        loadRoundImage(context, url, view, R.drawable.ic_err_default);
     }
 
     public static void loadRoundImage(Context context, Drawable drawable, ImageView view) {
-        loadRoundImage(context, drawable, view, R.drawable.ic_default);
+        loadRoundImage(context, drawable, view, R.drawable.ic_err_default);
 
     }
 
@@ -65,7 +65,7 @@ public class GlideUtil {
     }
 
     public static void loadImage(Context context, String url, ImageView view) {
-        loadImage(context, url, view, R.drawable.ic_default);
+        loadImage(context, url, view, R.drawable.ic_err_default);
     }
 
     public static void loadImage(Context context, String url, ImageView view, int defaultResId) {
@@ -84,7 +84,7 @@ public class GlideUtil {
             url = IMG_SERVER + url;
         }
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(url).apply(requestOptions).into(view);
 
     }
@@ -101,42 +101,42 @@ public class GlideUtil {
 
     public static void loadCornerImage(Context context, Bitmap bitmap, ImageView view, float corner) {
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(bitmap).apply(requestOptions).into(view);
 
     }
 
     public static void loadCornerImage(Context context, int resId, ImageView view, float corner) {
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(resId).apply(requestOptions).into(view);
 
     }
 
     public static void loadCornerImage(Context context, Drawable bitmap, ImageView view, float corner) {
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(bitmap).apply(requestOptions).into(view);
 
     }
 
     public static void loadCornerImage(Context context, File file, ImageView view, float corner) {
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(file).apply(requestOptions).into(view);
 
     }
 
     public static void loadCornerImage(Context context, File file, ImageView view, float corner, SizeReadyCallback callback) {
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(file).apply(requestOptions).into(view).getSize(callback);
 
     }
 
     public static void loadCornerImage(Context context, String file, ImageView view, float corner, SizeReadyCallback callback) {
         GlideRoundedCornersTransform roundedCorners = new GlideRoundedCornersTransform(DisplayUtil.dp2px(context, corner), CornerType.ALL);
-        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_default);
+        RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCorners).placeholder(R.drawable.ic_err_default);
         Glide.with(context).load(file).apply(requestOptions).into(view).getSize(callback);
 
     }

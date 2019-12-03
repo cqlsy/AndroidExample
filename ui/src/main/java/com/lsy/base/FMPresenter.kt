@@ -3,7 +3,7 @@ package com.lsy.base
 import io.reactivex.disposables.Disposable
 
 /* 数据处理 */
-abstract class FMPresenter<T : FMView> {
+abstract class FMPresenter<T : FMView> : IPresenter {
 
     var mView: T? = null
 
@@ -13,17 +13,18 @@ abstract class FMPresenter<T : FMView> {
      *
      * @param view
      */
-    fun attachView(view: T) {
-        mView = view
+    override fun attachView(view: FMView) {
+        mView = view as T
     }
 
     /**
      * 解除View
      * 释放View引用
      */
-    fun detachView() {
+    override fun detachView() {
         mView = null
     }
+
 
     /**
      * 添加成功，就交给 activity 或者 fragment 去处理

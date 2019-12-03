@@ -41,6 +41,14 @@
         <attr name="ui_error_view" format="reference" />
         <attr name="ui_loading_view" format="reference" />-->
         <attr name="ui_fun_view" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CommonAppbar">
+
+        <attr name="appbar_title" format="string" />
+        <attr name="appbar_left_icon" format="reference" />
+        <attr name="appbar_title_text_size" format="string" />
 
     </declare-styleable>
 

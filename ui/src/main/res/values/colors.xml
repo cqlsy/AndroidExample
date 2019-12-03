@@ -6,7 +6,6 @@
 
     <color name="black_overlay">#66000000</color>
 
-
     <color name="transparent">#00000000</color>
     <color name="white_1">#1AFFFFFF</color>
     <color name="white_2">#33FFFFFF</color>
@@ -29,4 +28,7 @@
     <color name="black_8">#CC000000</color>
     <color name="black_9">#E6000000</color>
     <color name="black">#FF000000</color>
+
+    <!-- 如果需要改变，就需要自定义覆盖这个参数 -->
+    <color name="appbar_title_color">#333333</color>
 </resources>

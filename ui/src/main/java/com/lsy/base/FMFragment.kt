@@ -8,6 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.lsy.permission.PermissionUtil
 import com.lsy.utils.LogUtil
 import com.lsy.widget.loading.DefaultLoading
 import com.lsy.widget.loading.ILoadingIndicator
@@ -21,15 +22,19 @@ abstract class FMFragment : Fragment(), FMView {
     private val mCompositeDisposable = CompositeDisposable()
     // loading
     private var mLoadingDialog: ILoadingIndicator? = null
+    private var presenters: ArrayList<IPresenter?> = ArrayList()
 
-    private var mIsInit = false
     var mVisibleInVp = false
+    var mPermissionUtil: PermissionUtil? = null
+    var mIsInit = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        mPermissionUtil = PermissionUtil(this)
+        initPresenter(presenters)
         FMContract.attachView(this)
         mViewBinding = DataBindingUtil.inflate(
             inflater, getLayoutId(), container, false
@@ -41,6 +46,7 @@ abstract class FMFragment : Fragment(), FMView {
         super.onViewCreated(view, savedInstanceState)
         initBinding(mViewBinding)
         initViews()
+        FMContract.start(this)
         mIsInit = true
     }
 
@@ -50,6 +56,7 @@ abstract class FMFragment : Fragment(), FMView {
             /* 表示可见 */
             onFragmentVisibleOnVp()
         }
+        mPermissionUtil?.onResume()
     }
 
     override fun onDestroyView() {
@@ -57,6 +64,15 @@ abstract class FMFragment : Fragment(), FMView {
         FMContract.detachView(this)
         mCompositeDisposable.dispose()
         mCompositeDisposable.clear()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        mPermissionUtil?.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     @LayoutRes
@@ -70,12 +86,10 @@ abstract class FMFragment : Fragment(), FMView {
 
     abstract fun initViews()
 
-    override fun <T : FMView> getPresenter(): FMPresenter<T>? {
-        return null
-    }
+    abstract fun initPresenter(presenters: ArrayList<IPresenter?>)
 
-    override fun <T : FMView> getPresenters(): ArrayList<FMPresenter<T>?>? {
-        return null
+    override fun getPresenters(): ArrayList<IPresenter?> {
+        return presenters
     }
 
     override fun getLoadingIndicator(): ILoadingIndicator {
@@ -89,7 +103,7 @@ abstract class FMFragment : Fragment(), FMView {
     }
 
     override fun handleException(throwable: Throwable) {
-        LogUtil.d("Exception", throwable.message)
+
     }
 
     override fun addDisposable(disposable: Disposable) {
